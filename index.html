@@ -7,54 +7,14 @@
     <title>PennBasics</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.1/css/bulma.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
+    <link rel="apple-touch-icon" sizes="180x180" href="/img/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicons/favicon-16x16.png">
+    <link rel="manifest" href="/img/favicons/manifest.json">
+    <link rel="mask-icon" href="/img/favicons/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="theme-color" content="#ffffff">
     <script src="jquery.min.js"></script>
     <script src="jquery.serialize-object.min.js"></script>
-    <script type="text/javascript">
-        var $form = $('#email-form'),
-            url = 'https://script.google.com/a/sas.upenn.edu/macros/s/AKfycbxC_lYGqhirgrB1k6jX_NWYHrHP7OBuQ_1vlZxjIfcOFmV5xHoX/exec'
-
-        $('input#submit-form').on('click', function (e) {
-            e.preventDefault();
-            var jqxhr = $.ajax({
-                url: url,
-                method: "GET",
-                dataType: "json",
-                data: $form.serializeObject(),
-            }).success(
-                document.getElementById('submit-form').value = "Thanks!";
-            );
-        })
-    </script>
-<!-- https://script.google.com/macros/u/0/s/AKfycbx5t9onTFWeLw6VHBPVKxtMgSDMY3_xF3KaNSTyGhrUv_MdhQzd/exec -->
-    <!--<script>
-        function postEmailToGoogle() {
-            var email = $('#email').val();
-
-            $.ajax({
-                url: "hhttps://docs.google.com/forms/d/e/1FAIpQLSfXyADcvkBbLG1L8AJI8mWFb-wYikPU_97dxJEiDYL7jouCEg/viewform",
-                data: {
-                    "entry.1426597363": email
-                },
-                type: "POST",
-                dataType: "xml",
-                statusCode: {
-                    0: function () {
-                        document.getElementById('submit-form').value = "Thanks!"
-                    },
-                    200: function () {
-                        document.getElementById('submit-form').value = "Thanks!"
-                    }
-                }
-            });
-        }
-        $(document).ready(function () {
-            $('#form').submit(function () {
-                postToGoogle();
-                return false;
-            });
-        });
-    </script>-->
 
 
 
