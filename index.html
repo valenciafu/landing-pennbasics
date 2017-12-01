@@ -5,8 +5,59 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>PennBasics</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.0/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.1/css/bulma.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="jquery.min.js"></script>
+    <script src="jquery.serialize-object.min.js"></script>
+    <script type="text/javascript">
+        var $form = $('#email-form'),
+            url = 'https://script.google.com/a/sas.upenn.edu/macros/s/AKfycbxC_lYGqhirgrB1k6jX_NWYHrHP7OBuQ_1vlZxjIfcOFmV5xHoX/exec'
+
+        $('input#submit-form').on('click', function (e) {
+            e.preventDefault();
+            var jqxhr = $.ajax({
+                url: url,
+                method: "GET",
+                dataType: "json",
+                data: $form.serializeObject(),
+            }).success(
+                document.getElementById('submit-form').value = "Thanks!";
+            );
+        })
+    </script>
+
+    <!--<script>
+        function postEmailToGoogle() {
+            var email = $('#email').val();
+
+            $.ajax({
+                url: "hhttps://docs.google.com/forms/d/e/1FAIpQLSfXyADcvkBbLG1L8AJI8mWFb-wYikPU_97dxJEiDYL7jouCEg/viewform",
+                data: {
+                    "entry.1426597363": email
+                },
+                type: "POST",
+                dataType: "xml",
+                statusCode: {
+                    0: function () {
+                        document.getElementById('submit-form').value = "Thanks!"
+                    },
+                    200: function () {
+                        document.getElementById('submit-form').value = "Thanks!"
+                    }
+                }
+            });
+        }
+        $(document).ready(function () {
+            $('#form').submit(function () {
+                postToGoogle();
+                return false;
+            });
+        });
+    </script>-->
+
+
+
 </head>
 
 <body>
@@ -47,19 +98,20 @@
             <div class="box " style="width:50%;margin-left:auto; margin-right:auto ">
                 <h3 class="is-size-5 ">Be the first to know about the Basics.</h3>
                 <br>
-                <div class="field is-grouped " style="width:85%; margin-left:auto; margin-right:auto ">
-                    <p class="control has-icons-left is-expanded ">
-                        <input class="input " type="email " placeholder="Email ">
-                        <span class="icon is-small is-left ">
-                            <i class="fa fa-envelope "></i>
-                        </span>
-                    </p>
-                    <p class="control ">
-                        <a class="button is-info ">
-                            Sign me up!
-                        </a>
-                    </p>
-                </div>
+                <form id="email-form">
+                    <div class="field is-grouped " style="width:85%; margin-left:auto; margin-right:auto ">
+                        <p class="control has-icons-left is-expanded ">
+                            <input class="input" type="text" name="email" id="email" placeholder="Email" />
+                            <span class="icon is-small is-left ">
+                                <i class="fa fa-envelope "></i>
+                            </span>
+                        </p>
+                        <div class="control">
+                            <input class="button is-success" type="submit" id="submit-form" value="Sign me up!" />
+
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
     </footer>
